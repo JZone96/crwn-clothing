@@ -1,0 +1,54 @@
+.homepage{ // for the homepage, we need flexbox, displayed in column (header and menu), centred
+	display: flex;
+	flex-direction: column;
+	align-item: center;
+	padding: 20px 80px;
+}
+
+.directory-menu{ // for the menu we need flexbox, and some space between each item, 
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.menu-item{//
+	min-width: 30%;
+	height: 240px;
+	flex: 1 1 auto;// the item will be sized by it's width/height props, and it will absorb any extra space in the main axis
+	//it it was"flex:0 auto" it would be sized by it's width/height props, but it wouldn't occupy all the free space left
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid black;
+	margin: 0 7.5px 15px;
+	//& === menu-item => .menu-item:first-child
+	&:first-child{// if it is the first menu item, margin right = 7.5 px
+		margin-right: 7.5px;
+	}
+	&:last-child{
+		margin-left: 7.5px;
+	}
+	//every <element> with the class=content inside a <element> with class=menu-item, will recieve this style
+	.content{// is a <div> with flex column centered,  
+		height: 90px;
+		padding: 0 25px;
+		display: flex;
+		flex-direction: column;
+		align-item: center;
+		justify-content: center;
+		border: 1px solid black;
+
+		.title{
+			font-weight: bold;
+			margin-bottom: 6px;
+			font-size: 22px;
+			color: #4a4a4a;
+		}
+
+		.subtitle{
+			font-weight: lighter;
+			font-size: 16px;
+		}
+	}
+}

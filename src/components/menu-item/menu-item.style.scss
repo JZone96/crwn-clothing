@@ -1,17 +1,3 @@
-.homepage{ // for the homepage, we need flexbox, displayed in column (header and menu), centred
-	display: flex;
-	flex-direction: column;
-	align-item: center;
-	padding: 20px 80px;
-}
-
-.directory-menu{ // for the menu we need flexbox, and some space between each item, 
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
 .menu-item{//
 	min-width: 30%;
 	height: 240px;
@@ -22,6 +8,21 @@
 	justify-content: center;
 	border: 1px solid black;
 	margin: 0 7.5px 15px;
+	overflow: hidden;
+
+	&:hover{
+		cursor:pointer; //when on the menu item, the cursor become a pointer
+
+		& .background-image{// when inside an hover propriety, we NEED  space between & and class
+			transform: scale(1.1); //scale the bg image by 1.1
+			transition: transform 6s cubic-bezier(0.25, 0.45,0.45,0.95); 
+			//smother transition throught mathemathical calculations
+		}
+
+		& .content{//higher opacity of content
+			opacity: 0.9;
+		}
+	}
 	//& === menu-item => .menu-item:first-child
 	&:first-child{// if it is the first menu item, margin right = 7.5 px
 		margin-right: 7.5px;
@@ -29,16 +30,31 @@
 	&:last-child{
 		margin-left: 7.5px;
 	}
+
+	&.large{
+		height:380px
+	}
+
+	.background-image {
+			width: 100%;
+			height: 100%;//image always the size of container
+			background-size: cover;//cover all the container
+			background-position: center;//centered image
+
+	}
 	//every <element> with the class=content inside a <element> with class=menu-item, will recieve this style
 	.content{// is a <div> with flex column centered,  
 		height: 90px;
 		padding: 0 25px;
 		display: flex;
 		flex-direction: column;
-		align-item: center;
+		align-items: center;
 		justify-content: center;
 		border: 1px solid black;
-
+		background-color: white;
+		opacity: 0.7;
+		position: absolute;//no matter what other elements of the page do, the position of the content will be the same
+		//do not include the background in the positioning calculation
 		.title{
 			font-weight: bold;
 			margin-bottom: 6px;
@@ -50,5 +66,6 @@
 			font-weight: lighter;
 			font-size: 16px;
 		}
+
 	}
 }

@@ -1,0 +1,6 @@
+.directory-menu{ // for the menu we need flexbox, and some space between each item, 
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}

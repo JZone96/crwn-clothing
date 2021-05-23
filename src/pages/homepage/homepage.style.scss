@@ -1,0 +1,6 @@
+.homepage{ // for the homepage, we need flexbox, displayed in column (header and menu), centred
+	display: flex;
+	flex-direction: column;
+	align-item: center;
+	padding: 20px 80px;
+}

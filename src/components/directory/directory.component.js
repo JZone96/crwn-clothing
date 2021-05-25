@@ -54,10 +54,10 @@ class Directory extends Component{
 	}
 
 	render(){
-		{/*ES6 Spread operator, beccause we are using the same name for argument and props*/}
+		/*ES6 Spread operator, beccause we are using the same name for argument and props*/
 		return(
 			<div className="directory-menu">{
-				this.state.sections.map(({id, ... otherSectionprops})=>(
+				this.state.sections.map(({id, ...otherSectionprops})=>(
 					<MenuItem key={id} {...otherSectionprops}/>
 				
 				))

@@ -38,6 +38,10 @@
 
   Instead we use withRouter(), wich takes as argument a component, and returns that same component, but with 
   "Route" props
+  ----------------------------------------
+  HEADER COMPONENT
+
+  always on top of the page, made of logo, shop, contact, and cart(component)
 
 
 */
@@ -46,12 +50,15 @@ import {Switch,Route} from 'react-router-dom';
 
 import './App.css';
 import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shop/shop.component'
+import ShopPage from './pages/shop/shop.component';
+import Header from './components/header/header.component';
 
 class App extends Component {
   render(){
     return (
+      /*HEADER will always be on top of the page, no matter what*/
     <div>
+      <Header/>
       <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/shop' component={ShopPage}/>

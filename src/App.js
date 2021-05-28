@@ -52,19 +52,43 @@ import './App.css';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
+import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
+import {auth} from './firebase/firebase.utils';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      currentUser: null,
+    }
+  }
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount(){
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user=>{//persistant user session
+      /*this function will create a message channel between our app and firebase. when a user signout, 
+      this information will be send here, otherwise, it will assume that the user is still signed in*/
+      this.setState({currentUser:user})
+      console.log(user)
+    })
+  }
+
+  componentWillUnmount(){
+    this.unsubscribeFromAuth();
+  }
   render(){
-    return (
-      /*HEADER will always be on top of the page, no matter what*/
-    <div>
-      <Header/>
-      <Switch>
-        <Route exact path='/' component={HomePage}/>
-        <Route exact path='/shop' component={ShopPage}/>
-      </Switch>
-    </div>
-  );
+      return (
+        /*HEADER will always be on top of the page, no matter what*/
+      <div>
+        <Header currentUser={this.state.currentUser}/>
+        <Switch>
+          <Route exact path='/' component={HomePage}/>
+          <Route exact path='/shop' component={ShopPage}/>
+          <Route path = '/signin' component={SignInAndSignUpPage}/>
+        </Switch>
+      </div>
+    );
   }
   
 }

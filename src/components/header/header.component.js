@@ -11,8 +11,10 @@ import {connect} from 'react-redux'; //higher order component that let's us have
 //higher order component takes a component and returns the same component 'supered up'
 
 import './header.style.scss';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-const Header = ({currentUser}) =>(
+const Header = ({currentUser, hidden}) =>(
 	<div className='header'>
 		<Link className='logo-container'to = '/'>
 			<Logo className='logo'/>
@@ -30,13 +32,22 @@ const Header = ({currentUser}) =>(
 				:
 				<Link className='option' to='/signin'>SIGN IN</Link>
 			}
+			<CartIcon />
+			{
+				hidden?
+				null:
+				<CartDropdown/>
+			}
 		</div>
+
 	</div>
 )
 
 //a function that allows us to access the root reducer, that contains all the state of our application
-const mapStateToProps = (state) =>({//state will be the root reducer => will give use user reduce=> will gives us the INITIAL_STATE or the value passed as payload
-	currentUser: state.user.currentUser
+const mapStateToProps = ({user:{currentUser}, cart:{hidden}}) =>({//state will be the root reducer => will give use user reduce=> will gives us the INITIAL_STATE or the value passed as payload
+	//currentUser: state.user.currentUser
+	currentUser,
+	hidden
 })
 
 export default connect(mapStateToProps)(Header);

@@ -7,7 +7,9 @@
 import {combineReducers} from 'redux';
 
 import userReducer from './user/user.reducer';
+import cartReducer from './cart/cart.reducer';
 
 export default combineReducers({//giant obj with all the reducers
-	user: userReducer // sets the user, with the current return from the user.reducer.js file
+	user: userReducer, // sets the user, with the current return from the user.reducer.js file
+	cart: cartReducer
 })

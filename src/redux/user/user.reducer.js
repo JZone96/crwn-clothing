@@ -12,6 +12,8 @@
 		payload:// we can use it to do anything, contains the value to update the state
 	}
 */
+import {userActionTypes} from './user.types';
+
 const INITIAL_STATE = {
 	//we are declaring this, because when the app first initialize, it doesn't have any state.
 	currentUser: null,
@@ -19,7 +21,7 @@ const INITIAL_STATE = {
 const userReducer = (state = INITIAL_STATE, action)=>{
 	//default parameter (state = INITIAL_STATE) means if state is undefined (not null! it would be still valid), set it to INITIAL_STATE
 	switch (action.type){
-		case 'SET_CURRENT_USER':
+		case userActionTypes.SET_CURRENT_USER:
 			return {
 				...state,
 				currentUser: action.payload

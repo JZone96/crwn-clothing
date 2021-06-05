@@ -5,8 +5,9 @@ import './custom-button.style.scss';
 const CustomButton = ({children, loginMethod, isGoogleSignIn, ...otherProps}) =>{
 
 		return(
-			<button onClick={loginMethod ? loginMethod : null} 
-					className = {`${isGoogleSignIn? 'google-sign-in': ''} custom-button`}>
+			<button 
+			onClick={loginMethod ? loginMethod : null} 
+			className = {`${isGoogleSignIn? 'google-sign-in': ''} custom-button`}>
 				{children}
 			</button>
 			);

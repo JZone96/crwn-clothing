@@ -4,14 +4,21 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+
 import {BrowserRouter} from 'react-router-dom';//Imports routing functionality to our application
 
+//1 create reducer, 2 create store, 3 create actions
+import store from './redux/store';
+import {Provider} from 'react-redux'//component that gives access to the store to all the application
+
 ReactDOM.render(
-  <React.StrictMode>
-  	<BrowserRouter>
-  		<App />
-  	</BrowserRouter>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+    	<BrowserRouter>
+    		<App />
+    	</BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

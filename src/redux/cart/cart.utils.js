@@ -3,6 +3,7 @@ and organize function that we may need in multiple files in one location*/
 
 export const addItemToCart = (cartItems, cartItemToAdd) =>{
 	//checks if the cartItemToAdd exsists into our cart
+	//find returns the element that checks the condition
 	const existingCartItem = cartItems.find(cartItem=> cartItem.id === cartItemToAdd.id);
 
 	if (existingCartItem){

@@ -23,9 +23,9 @@ const CollectionPreview = ({title,items}) =>{
 			{
 				/*these anonymus function calls, creates performance issues, because it gets calld every time the page rerenders*/
 				items.filter((item,idx)=>idx<4)
-				.map(({id, ...otherItemProps})=>{
+				.map((item)=>{
 					return(
-						<CollectionItem key = {id} {...otherItemProps}/>
+						<CollectionItem key = {item.id} item={item}/>
 						);
 				})
 			}

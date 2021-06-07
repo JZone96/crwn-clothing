@@ -3,7 +3,7 @@
 	pass them out to the reducers.
 */
 import {createStore, applyMiddleware} from 'redux';
-import logger from 'redux-logger';
+import logger from 'redux-logger';//declaration middlewares
 
 import rootReducer from './root-reducer';
 

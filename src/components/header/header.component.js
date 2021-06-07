@@ -42,6 +42,10 @@ const Header = ({currentUser, hidden}) =>(
 
 	</div>
 )
+//mapStateToProps is used to take the part of the data from the store that the component needs
+//it's called when the store state changes, and recieves the entire store data.
+//So it should return an object of data this component needs
+//should take 'state' as first argument referring to the entire store state
 
 //a function that allows us to access the root reducer, that contains all the state of our application
 const mapStateToProps = ({user:{currentUser}, cart:{hidden}}) =>({//state will be the root reducer => will give use user reduce=> will gives us the INITIAL_STATE or the value passed as payload
